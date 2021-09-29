@@ -114,10 +114,12 @@ class Station:
             if isinstance(person.cards[card_number], MTimeCredit):
                 person.cards[card_number].balance += int(amount)
                 person.cards[card_number].expire_time += datetime.timedelta(days = int(time_amount))
-                print("")
+                print(
+                    f"your Ticket balance increase to {person.cards[card_number].balance} and your Expire time extended to {person.cards[card_number].expire_time}")
                 return person.cards[card_number].balance, person.cards[card_number].expire_time.day
-            elif isinstance(person.cards[card_number], MCredit) :
+            elif isinstance(person.cards[card_number], MCredit):
                 person.cards[card_number].balance += int(amount)
+                print(f"your Ticket balance increase to {person.cards[card_number].balance}")
                 return person.cards[card_number].balance
             else:
                 raise NotChargeable

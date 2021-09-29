@@ -81,12 +81,9 @@ if __name__ == '__main__':
         with open("db.pkl", "wb") as writer:
             pickle.dump(data, writer)
         os.system('cls')
-        # read_one_time = True
     else:
 
         picked_person = pick_person()
-        # read_one_time = True
-        # os.system('cls||clear')
     while True:
         print(
             f"""#############################
@@ -96,8 +93,9 @@ if __name__ == '__main__':
             2.Show Owned Tickets
             3.Travel
             4.increase Balance
-            5.Add a New Person
-            6.Exit
+            5.Add a New user
+            6.switch user
+            7.Exit
             """)
         selected = int(input("enter your task:"))
         if selected == 1:
@@ -139,6 +137,9 @@ if __name__ == '__main__':
             data.append(Person(first_name = person_info[0], last_name = person_info[1], card = ticket))
             print("A person Added to Database")
         elif selected == 6:
+            os.system('cls||clear')
+            picked_person = pick_person()
+        elif selected == 7:
             with open("db.pkl", "wb") as writer:
                 pickle.dump(data, writer)
             exit()
